@@ -1,0 +1,22 @@
+function toWeirdCase(string) {
+const words = string.split(' ');
+const resultWords = []; 
+
+for (let i = 0; i < words.length; i++) {
+const word = words[i];
+let transformedWord = '';
+for (let j = 0; j < word.length; j++) {
+    if (j % 2 === 0) {
+        transformedWord += word[j].toUpperCase();
+    } else {
+        transformedWord += word[j].toLowerCase();
+    }
+}
+
+resultWords.push(transformedWord);
+
+}
+
+return resultWords.join(' ');
+
+}
