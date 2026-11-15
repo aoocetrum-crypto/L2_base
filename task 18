@@ -1,0 +1,15 @@
+function hasTwoCubeSums(n){
+  let count = 0;
+  const limit = Math.floor(Math.cbrt(n));
+  
+  for (let a = 1; a <= limit; a++) {const bCubed = n - Math.pow(a,3); if (bCubed <= 0) continue;
+                                    const b = Math.round(Math.cbrt(bCubed));
+                                    if (Math.pow(b,3) === bCubed && a < b){
+                                      count++;
+                                      if(count === 2){
+                                        return true;
+                                      }
+                                    }
+                                    }
+                                    return false;
+}
