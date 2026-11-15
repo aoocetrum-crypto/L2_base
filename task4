@@ -1,0 +1,25 @@
+function howManyTimes(time1, time2) {
+let count = 0;
+let current = new Date(time1.replace(' ', 'T')).getTime();
+const end = new Date(time2.replace(' ', 'T')).getTime();
+while (current < end) {
+const date = new Date(current);
+const minutes = date.getMinutes();
+const seconds = date.getSeconds();
+if (minutes === 0) {
+    let hours = date.getHours() % 12;
+    if (hours === 0) hours = 12;
+    
+    if (seconds < hours) {
+        count++;
+    }
+} else if (minutes === 30) {
+    if (seconds === 0) {
+        count++;
+    }
+}
+
+current += 1000;
+}
+return count;
+}
